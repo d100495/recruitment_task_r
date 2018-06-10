@@ -19,7 +19,7 @@ public class GitHubFileLoaderTest {
 	@Test
 	public void testValidateGitHubFilePath_WhenStringIsNotNull_ShouldReturnStringWithRawContent() {
 		String string = "test";
-		assertEquals("test?raw=true", githubfileloader.validateGitHubFilePath(string));
+		assertEquals("test?raw=true", githubfileloader.createRawGitHubFilePath(string));
 	}
 
 }
