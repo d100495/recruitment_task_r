@@ -10,7 +10,7 @@ public class GitHubFileLoader {
 	public String loadGitHubFileContent(String path) {
 		String response = new String();
 		try {
-			URL url = new URL(validateGitHubFilePath(path));
+			URL url = new URL(createRawGitHubFilePath(path));
 			HttpURLConnection Http = (HttpURLConnection) url.openConnection();
 			InputStream Stream = Http.getInputStream();
 			response = new StreamReader().getStringFromStream(Stream);
@@ -20,7 +20,7 @@ public class GitHubFileLoader {
 		return response;
 	}
 
-	String validateGitHubFilePath(String path) {
+	String createRawGitHubFilePath(String path) {
 		if (path.length() > 0 && !path.contains("?raw=true")) {
 			path += "?raw=true";
 		}
